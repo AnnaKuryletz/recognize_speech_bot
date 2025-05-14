@@ -1,10 +1,14 @@
-from dotenv import load_dotenv
 import os
+
+from dotenv import load_dotenv
 from telegram.ext import CommandHandler, MessageHandler, Updater, Filters
+
 from handlers import start, echo
+
 
 def main():
     load_dotenv()
+    os.getenv("GOOGLE_APPLICATION_CREDENTIALS")
     token = os.getenv("TELEGRAM_BOT_TOKEN")
 
     updater = Updater(token, use_context=True)
@@ -15,6 +19,7 @@ def main():
 
     updater.start_polling()
     updater.idle()
+
 
 if __name__ == "__main__":
     main()

@@ -4,7 +4,7 @@ from dotenv import load_dotenv
 from telegram import Update
 from telegram.ext import CallbackContext
 
-from run import detect_intent_texts
+from dialogflow_tools import detect_intent_texts
 
 
 def start(update: Update, context: CallbackContext):

@@ -4,7 +4,7 @@ from dotenv import load_dotenv
 from telegram import Update
 from telegram.ext import CallbackContext
 
-from dialogflow_tools import detect_intent_texts
+from dialogflow_tools import detect_intent_texts_tg
 
 
 def start(update: Update, context: CallbackContext):
@@ -20,7 +20,7 @@ def echo(update: Update, context: CallbackContext):
     project_id = os.getenv("PROJECT_ID")
 
     try:
-        response = detect_intent_texts(
+        response = detect_intent_texts_tg(
             project_id, session_id, user_input, language_code
         )
         update.message.reply_text(response)

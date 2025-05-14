@@ -1,6 +1,8 @@
-from dotenv import load_dotenv
-import os
 import json
+import os
+
+from dotenv import load_dotenv
+
 
 def create_intent(project_id, display_name, training_phrases_parts, message_text):
     from google.cloud import dialogflow
@@ -30,13 +32,14 @@ if __name__ == "__main__":
     load_dotenv()
     project_id = os.getenv("PROJECT_ID")
 
-
-    with open('questions.json', 'r', encoding='utf8') as my_file:
+    with open("questions.json", "r", encoding="utf8") as my_file:
         questions_json = my_file.read()
 
     questions = json.loads(questions_json)
 
-    work_questions = questions['Устройство на работу']['questions']
-    work_answer = questions['Устройство на работу']['answer']
+    work_questions = questions["Устройство на работу"]["questions"]
+    work_answer = questions["Устройство на работу"]["answer"]
 
-    create_intent(project_id,'Как устроиться к вам на работу', work_questions, work_answer)
+    create_intent(
+        project_id, "Как устроиться к вам на работу", work_questions, work_answer
+    )

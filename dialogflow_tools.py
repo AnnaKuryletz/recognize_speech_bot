@@ -16,6 +16,7 @@ def detect_intent_texts_vk(project_id, session_id, text, language_code):
         return response.query_result.fulfillment_text
     return None
 
+
 def detect_intent_texts_tg(project_id, session_id, text, language_code):
     session_client = dialogflow.SessionsClient()
     session = session_client.session_path(project_id, session_id)
@@ -42,11 +43,3 @@ def create_api_key(project_id: str, suffix: str) -> Key:
 
     print(f"Successfully created an API key: {response.name}")
     return response
-
-
-# if __name__ == "__main__":
-#     project_id = "level-choir-459620-v0"
-
-# Создать API ключ
-# api_key = create_api_key(project_id, "example")
-# print("Созданный API ключ:", api_key.name)

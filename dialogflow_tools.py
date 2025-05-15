@@ -1,6 +1,10 @@
+import os
+
+from dotenv import load_dotenv
 from google.cloud import api_keys_v2
 from google.cloud.api_keys_v2 import Key
 from google.cloud import dialogflow
+
 
 def detect_intent_texts(project_id, session_id, text, language_code, allow_fallback=True):
     session_client = dialogflow.SessionsClient()
@@ -30,3 +34,14 @@ def create_api_key(project_id: str, suffix: str) -> Key:
     response = client.create_key(request=request).result()
 
     return response
+
+
+if __name__ == "__main__":
+    load_dotenv()
+    project_id = os.environ["PROJECT_ID"]
+
+    session_id = input("Введите session_id (например, 'user1'): ")
+    text = input("Введите фразу: ")
+    response = detect_intent_texts(project_id, session_id, text, "ru")
+    print(f"Ответ DialogFlow: {response}")
+

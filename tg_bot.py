@@ -1,21 +1,18 @@
 import os
 
-from dotenv import load_dotenv
 from telegram.ext import CommandHandler, MessageHandler, Updater, Filters
 
-from handlers import start, echo
+from handlers import start, handle_telegram_message
 
 
 def main():
-    load_dotenv()
-    os.getenv("GOOGLE_APPLICATION_CREDENTIALS")
-    token = os.getenv("TELEGRAM_BOT_TOKEN")
+    token = os.environ["TELEGRAM_BOT_TOKEN"]
 
     updater = Updater(token, use_context=True)
     dp = updater.dispatcher
 
     dp.add_handler(CommandHandler("start", start))
-    dp.add_handler(MessageHandler(Filters.text & ~Filters.command, echo))
+    dp.add_handler(MessageHandler(Filters.text & ~Filters.command, handle_telegram_message))
 
     updater.start_polling()
     updater.idle()

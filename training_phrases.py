@@ -30,10 +30,10 @@ def create_intent(project_id, display_name, training_phrases_parts, message_text
 
 if __name__ == "__main__":
     load_dotenv()
-    project_id = os.getenv("PROJECT_ID")
+    project_id = os.environ["PROJECT_ID"]
 
-    with open("questions.json", "r", encoding="utf8") as my_file:
-        questions_json = my_file.read()
+    with open("questions.json", "r", encoding="utf8") as file:
+        questions_json = file.read()
 
     questions = json.loads(questions_json)
 

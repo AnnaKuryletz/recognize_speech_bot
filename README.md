@@ -39,6 +39,16 @@ GOOGLE_APPLICATION_CREDENTIALS=''
 
 `GOOGLE_APPLICATION_CREDENTIALS` - переменная окружения, где лежит путь до файла с ключами от Google, credentials.json. Подробнее читать [здесь](https://cloud.google.com/docs/authentication/api-keys).
 
+
+## Запуск теста Dialogflow
+
+Вы можете протестировать работу Dialogflow с командной строки:
+
+```bash
+python dialogflow_tools.py
+```
+Появится приглашение ввести фразу. Ответ от Dialogflow будет выведен в консоль.
+
 ### Как включить
 Запуск скрипта осуществляется через консоль. 
 Телеграм бот:
@@ -54,7 +64,7 @@ python vk_bot.py
 
 ### Обучение ботов
 
-Обучение осуществляется через сервис [DialogFlow](https://dialogflow.cloud.google.com/#/login). Так же необходимо создать [агента](https://cloud.google.com/dialogflow/es/docs/quick/build-agent), которого нужно подключить к проекту DialogFlow Для автоматизации обучения используйте скрипт `dialog_flow_instruments`. Функция `create_api_key` используется для создания api ключа, а функция `create_intent` для обучения бота. Более подробное описание работы функций можно прочитать [здесь](https://cloud.google.com/dialogflow/es/docs/how/manage-intents#create_intent).
+Обучение осуществляется через сервис [DialogFlow](https://dialogflow.cloud.google.com/#/login). Так же необходимо создать [агента](https://cloud.google.com/dialogflow/es/docs/quick/build-agent), которого нужно подключить к проекту DialogFlow Для автоматизации обучения используйте скрипт `dialog_flow_tools`. Функция `create_api_key` используется для создания api ключа, а функция `detect_intent_texts` для обучения бота. Более подробное описание работы функций можно прочитать [здесь](https://cloud.google.com/dialogflow/es/docs/how/manage-intents#create_intent).
 
 
 ### Цель проекта

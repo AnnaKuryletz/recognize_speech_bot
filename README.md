@@ -40,7 +40,7 @@ GOOGLE_APPLICATION_CREDENTIALS=''
 `GOOGLE_APPLICATION_CREDENTIALS` - переменная окружения, где лежит путь до файла с ключами от Google, credentials.json. Подробнее читать [здесь](https://cloud.google.com/docs/authentication/api-keys).
 
 
-## Запуск теста Dialogflow
+### Запуск теста Dialogflow
 
 Вы можете протестировать работу Dialogflow с командной строки:
 
@@ -49,7 +49,7 @@ python dialogflow_tools.py
 ```
 Появится приглашение ввести фразу. Ответ от Dialogflow будет выведен в консоль.
 
-### Как включить
+### Как запустить ботов
 Запуск скрипта осуществляется через консоль. 
 Телеграм бот:
 ```

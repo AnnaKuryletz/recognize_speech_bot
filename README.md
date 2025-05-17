@@ -64,7 +64,20 @@ python vk_bot.py
 
 ### Обучение ботов
 
-Обучение осуществляется через сервис [DialogFlow](https://dialogflow.cloud.google.com/#/login). Так же необходимо создать [агента](https://cloud.google.com/dialogflow/es/docs/quick/build-agent), которого нужно подключить к проекту DialogFlow Для автоматизации обучения используйте скрипт `dialog_flow_tools`. Функция `create_api_key` используется для создания api ключа, а функция `detect_intent_texts` для обучения бота. Более подробное описание работы функций можно прочитать [здесь](https://cloud.google.com/dialogflow/es/docs/how/manage-intents#create_intent).
+Обучение осуществляется через сервис [DialogFlow](https://dialogflow.cloud.google.com/#/login). Так же необходимо создать [агента](https://cloud.google.com/dialogflow/es/docs/quick/build-agent), которого нужно подключить к проекту DialogFlow Для автоматизации обучения используйте скрипт `dialogflow_tools`. Функция `create_api_key` используется для создания api ключа, а функция `detect_intent_texts` для обучения бота. Более подробное описание работы функций можно прочитать [здесь](https://cloud.google.com/dialogflow/es/docs/how/manage-intents#create_intent).
+
+## Скрипт для создания интентов в Dialogflow
+
+Этот скрипт позволяет удобно создавать интенты в Dialogflow из JSON-файла, где заранее прописаны тренировочные фразы и ответ.
+
+* Запуск скрипта
+```bash
+python training_phrases.py --file=questions.json --topic="Устройство на работу" --intent-name="Как устроиться на работу"
+```
+* Аргументы командной строки
+`--file` - Путь к JSON-файлу. По умолчанию questions.json.
+`--topic`	- Ключ из JSON-файла, соответствующий одной теме с вопросами и ответом.
+`--intent-name` - Название интента, которое будет создано в Dialogflow.
 
 
 ### Цель проекта
